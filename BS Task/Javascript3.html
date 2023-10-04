@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript 4</title>
+    <style>
+        *
+        {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <label for="num1">1st Number: </label>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <br>
+    <label for="num2">2nd Number </label>
+    <input type="number" id="num2" placeholder="Enter second number">
+    <br>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>
+
+    <p id="result"></p>
+
+    <script>
+        function multiply() {
+            performCalculation('*');
+        }
+
+        function divide() {
+            performCalculation('/');
+        }
+
+        function performCalculation(operator) {
+            // Get the input values from the user
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+
+            // Check if the input values are valid numbers
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("result").textContent = "Please enter valid numbers.";
+            } else {
+                let result;
+                if (operator === '*') {
+                    result = num1 * num2;
+                } else if (operator === '/') {
+                    if (num2 === 0) {
+                        document.getElementById("result").textContent = "Division by zero is not allowed.";
+                        return;
+                    }
+                    result = num1 / num2;
+                }
+
+                // Display the result
+                document.getElementById("result").textContent = `The Result is: ${result}`;
+            }
+        }
+    </script>
+</body>
+</html>

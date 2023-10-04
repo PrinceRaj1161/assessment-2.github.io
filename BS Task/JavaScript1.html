@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script-1</title>
+</head>
+
+<body>
+    <h2>Javascript function that reverse a number</h2>
+
+    <script>
+        const userInput = prompt("Enter a number:");
+
+        // Step 2: Reverse the number
+        if (userInput !== null) {
+            const number = parseFloat(userInput); // Convert user input to a number
+            if (!isNaN(number)) { // Check if the input is a valid number
+                const reversedNumber = reverseNumber(number);
+
+                // Step 3: Display the reversed number
+                alert(`Reversed number: ${reversedNumber}`);
+            } else {
+                alert("Invalid input. Please enter a valid number.");
+            }
+        } else {
+            alert("No input provided. Please enter a number.");
+        }
+
+        // Function to reverse a number
+        function reverseNumber(num) {
+            const reversedString = num.toString().split('').reverse().join('');
+            return parseFloat(reversedString);
+        }
+    </script>
+</body>
+
+</html>
